@@ -1,11 +1,4 @@
-# Edu awesome 
+# KaosArch awesome 
 
+This is the skeleton I use for awesome Window Manager
 
-# Websites
-
-Information : https://erikdubois.be
-
-
-# Social Media
-
-Youtube  : https://www.youtube.com/erikdubois
