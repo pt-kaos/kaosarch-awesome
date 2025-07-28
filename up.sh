@@ -18,7 +18,7 @@ set -eo pipefail
 
 tput setaf 6
 echo "=============================================================="
-echo "                    Updating $(basename $0)"
+echo "                    Updating $(basename $(pwd))"
 echo "=============================================================="
 tput sgr0
 
