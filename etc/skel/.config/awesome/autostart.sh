@@ -1,35 +1,43 @@
 #!/bin/bash
 
-function run {
-  if ! pgrep $1 ;
-  then
-    $@&
-  fi
+# Function to run an application only if it's not already running
+run() {
+    # Verify only the name of the application ($1)
+    if ! pgrep -f "$1" >/dev/null ;
+    then
+        "$@" &      # Run the application with all arguments if there are any
+    fi
 }
-run dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
-#run xrandr --output VGA-1 --primary --mode 1360x768 --pos 0x0 --rotate normal
-#run xrandr --output HDMI2 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
-#autorandr horizontal
-run nm-applet
-#run caffeine
-run pamac-tray
-run variety
-run xfce4-power-manager
-run blueberry-tray
+
+### --- Autostart Applications --- ###
+
+# 1. System Tray Icons
+run nm-applet             # Network Manager
+run pamac-tray            # Package manager update notifier
+run blueberry-tray        # Bluetooth applet
+run volumeicon            # Volume control
+
+# 2. Background Services
+run xfce4-power-manager   # Power manager
+run numlockx on           # Turns on numlock
+
+# 3. Authentication Agent (Polkit)
+# Required for applications needing admin privileges
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-run numlockx on
-run volumeicon
-#run nitrogen --restore
-run conky -c $HOME/.config/awesome/system-overview
-#you can set wallpapers in themes as well
-feh --bg-fill /usr/share/backgrounds/archlinux/arch-wallpaper.jpg &
-feh --bg-fill /usr/share/backgrounds/arco/arco-wallpaper.jpg &
-#run applications from startup
-#run firefox
-#run code
-#run dropbox
-#run insync start
-#run spotify
-#run ckb-next -b
-#run discord
-#run telegram-desktop
+
+# 4. Wallpaper
+# The theme.lua file can also set a wallpaper.
+# Using nitrogen here is a reliable fallback.
+run nitrogen --restore
+
+# 5. Compositor
+# This helps with transparency and graphical effects.
+# Picom is a lightweight and popular choice.
+run picom --config ~/.config/awesome/picom.conf
+
+# --- User-specific autostart applications can be added below ---
+# Examples:
+# run discord
+# run telegram-desktop
+# run steam
+# run dropbox
