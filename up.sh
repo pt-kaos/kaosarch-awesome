@@ -24,8 +24,6 @@ tput sgr0
 
 message="New update"
 
-workdir=$(pwd)
-
 while getopts ":m:" opt; do
   case ${opt} in
     m )
@@ -39,6 +37,8 @@ while getopts ":m:" opt; do
       ;;
   esac
 done
+
+echo "====> git update <===="
 
 git add --all .                           # Add every change to be pushed to git
 git commit -m "$message"                  # Commit to local repository with a default message
