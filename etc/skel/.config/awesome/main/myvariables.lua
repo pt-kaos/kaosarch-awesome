@@ -1,22 +1,22 @@
 awful = require 'awful'
 
 -- modkey or mod4 = super key
-local modkey = 'Mod4'
-local altkey = 'Mod1'
-local modkey1 = 'Control'
+modkey = 'Mod4'
+altkey = 'Mod1'
+modkey1 = 'Control'
 
 -- personal variables
 --change these variables if you want
-local browser1 = 'firefox'
-local browser2 = 'brave'
-local browser3 = 'chromium -no-default-browser-check'
-local editor = os.getenv 'EDITOR' or 'nvim'
-local editorgui = 'subl'
-local filemanager = 'thunar'
-local mailclient = 'thunderbird'
-local mediaplayer = 'spotify'
-local terminal = 'alacritty'
-local virtualmachine = 'virt-manager'
+browser1 = 'firefox'
+browser2 = 'brave'
+browser3 = 'chromium -no-default-browser-check'
+editor = os.getenv 'EDITOR' or 'nvim'
+editorgui = 'subl'
+filemanager = 'thunar'
+mailclient = 'thunderbird'
+mediaplayer = 'spotify'
+terminal = 'alacritty'
+virtualmachine = 'virt-manager'
 pwmanager = 'keepassxc'
 
 -- awesome variables
