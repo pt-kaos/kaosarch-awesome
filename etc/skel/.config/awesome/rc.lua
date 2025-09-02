@@ -142,16 +142,6 @@ awful.util.tasklist_buttons = my_table.join(
     end)
 )
 
-lain.layout.termfair.nmaster = 3
-lain.layout.termfair.ncol = 1
-lain.layout.termfair.center.nmaster = 3
-lain.layout.termfair.center.ncol = 1
-lain.layout.cascade.tile.offset_x = dpi(2)
-lain.layout.cascade.tile.offset_y = dpi(32)
-lain.layout.cascade.tile.extra_padding = dpi(5)
-lain.layout.cascade.tile.nmaster = 5
-lain.layout.cascade.tile.ncol = 2
-
 beautiful.init(string.format('%s/.config/awesome/themes/%s/theme.lua', os.getenv 'HOME', chosen_theme))
 -- }}}
 
